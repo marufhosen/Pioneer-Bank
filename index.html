@@ -20,6 +20,7 @@
     </div>
 
     <div id="transection-area">
+        <h1 class="text-center mb-5">Banking Calculation</h1>
           <div class="row">
               <div class="col-md deposit status">
                   <div class="deposit">
@@ -30,13 +31,13 @@
               <div class="col-md withdraw status">
                 <div class="withdraw">
                     <h5>Withdraw</h5>
-                    <h2>$<span id="withdrawBalance">00</span></h2>
+                    <h2>$<span id="currentWithdraw">00</span></h2>
                 </div>
               </div>
               <div class="col-md balance status">
                 <div class="balance">
                     <h5>Balance</h5>
-                    <h2>$<span id="addBalance">1240</span></h2>
+                    <h2>$<span id="addBalance">2000000</span></h2>
                 </div>
               </div>
           </div>
@@ -59,54 +60,6 @@
           </div>
     </div>
 
-    <script>
-        
-        //goToAnotherPage(LogIn Button Event Handlar)
-        const loginbtn = document.getElementById('btnlogin');
-        loginbtn.addEventListener('click', loginfunc);
-        function loginfunc(){
-            const loginArea = document.getElementById('login-area');
-            loginArea.style.display = "none";
-
-            const transectionArea = document.getElementById('transection-area');
-            transectionArea.style.display = "block";
-        }
-        //Deposit Button Event Handlar
-        const depbtn = document.getElementById('deposit');
-        depbtn.addEventListener('click', depositPart);
-
-        function depositPart(){
-            const dipoAmount = document.getElementById('depositAmount').value;
-            const depoNumber = parseFloat(dipoAmount);
-
-            UpdateSpanText("currentDeposit",depoNumber)
-            UpdateSpanText("addBalance",  depoNumber);
-
-            document.getElementById('depositAmount').value = "";
-        }
-
-        function UpdateSpanText(id, depoNumber){
-            const nBalance = document.getElementById(id).innerText;
-            const balanceAmount = parseFloat(nBalance);
-            const totalBalance = depoNumber + balanceAmount;
-            document.getElementById(id).innerText = totalBalance;
-        }
-
-
-        const withDrawButton = document.getElementById('withdraw');
-        withDrawButton.addEventListener('click', WithdrawBtn);
-        function WithdrawBtn(){
-            const withdrawNumber = getInputNumber("withdrawMoney");
-            console.log(withdrawNumber);
-        }
-
-        function getInputNumber(id){
-            const WithdrawBalance = document.getElementById(id).value;
-            const withdrawNumber = parseFloat(WithdrawBalance);
-            return withdrawNumber;
-        }
-
-
-    </script>
+    <script src="index.js"></script>
 </body>
 </html>
